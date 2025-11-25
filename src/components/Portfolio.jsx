@@ -2,82 +2,34 @@ import React from 'react';
 
 const Portfolio = () => {
     const portfolioItems = [
-        {
-            id: 1,
-            title: 'Wedding Bliss',
-            category: 'Wedding',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Wedding+1',
-        },
-        {
-            id: 2,
-            title: 'Urban Portraits',
-            category: 'Portrait',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Portrait+1',
-        },
-        {
-            id: 3,
-            title: 'Nature\'s Beauty',
-            category: 'Nature',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Nature+1',
-        },
-        {
-            id: 4,
-            title: 'Corporate Events',
-            category: 'Event',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Event+1',
-        },
-        {
-            id: 5,
-            title: 'Studio Session',
-            category: 'Portrait',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Studio+1',
-        },
-        {
-            id: 6,
-            title: 'Travel Diaries',
-            category: 'Travel',
-            image: 'https://placehold.co/600x800/f3f4f6/1f2937?text=Travel+1',
-        },
+        { id: 1, image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80', title: 'Wedding' },
+        { id: 2, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80', title: 'Portrait' },
+        { id: 3, image: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80', title: 'Fashion' },
+        { id: 4, image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80', title: 'Wedding' },
+        { id: 5, image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80', title: 'Portrait' },
+        { id: 6, image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80', title: 'Nature' },
+        { id: 7, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80', title: 'Camera' },
+        { id: 8, image: 'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?w=800&q=80', title: 'Event' },
+        { id: 9, image: 'https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&q=80', title: 'Studio' },
     ];
 
     return (
-        <section id="portfolio" className="py-20 bg-gray-50">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <span className="text-gray-600 font-medium tracking-wide uppercase text-sm">My Work</span>
-                    <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Featured Portfolio</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                        A collection of my best work across different categories. Each image tells a unique story.
-                    </p>
+        <section className="grid-gallery">
+            {portfolioItems.map((item) => (
+                <div key={item.id} className="group relative cursor-pointer">
+                    <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+                        <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div className="mt-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-sm tracking-widest uppercase">{item.title}</span>
+                    </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {portfolioItems.map((item) => (
-                        <div key={item.id} className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white">
-                            <div className="aspect-[3/4] overflow-hidden">
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                <span className="text-white/80 text-sm font-medium mb-1">{item.category}</span>
-                                <h3 className="text-white text-xl font-bold">{item.title}</h3>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="text-center mt-12">
-                    <a
-                        href="#"
-                        className="inline-block border-2 border-black text-black px-8 py-3 rounded-full font-medium hover:bg-black hover:text-white transition-colors"
-                    >
-                        View All Projects
-                    </a>
-                </div>
-            </div>
+            ))}
         </section>
     );
 };

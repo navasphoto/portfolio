@@ -2,20 +2,20 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="py-12 mt-12 border-t border-gray-100">
-            <div className="container mx-auto flex flex-col items-center gap-6">
-                <div className="flex gap-6">
-                    <a href="#" className="text-gray-400 hover:text-black transition-colors">
-                        <i className="ri-instagram-line text-xl"></i>
+        <footer id="contact" className="site-footer">
+            <div className="container footer-container">
+                <div className="social-links">
+                    <a href="#" className="social-link">
+                        <i className="ri-instagram-line"></i>
                     </a>
-                    <a href="#" className="text-gray-400 hover:text-black transition-colors">
-                        <i className="ri-twitter-x-line text-xl"></i>
+                    <a href="#" className="social-link">
+                        <i className="ri-twitter-x-line"></i>
                     </a>
-                    <a href="#" className="text-gray-400 hover:text-black transition-colors">
-                        <i className="ri-linkedin-fill text-xl"></i>
+                    <a href="#" className="social-link">
+                        <i className="ri-linkedin-fill"></i>
                     </a>
                 </div>
-                <p className="text-gray-400 text-sm">
+                <p className="copyright">
                     © {new Date().getFullYear()} Navas Photography
                 </p>
             </div>
